@@ -1,27 +1,28 @@
 # godaddy-ddns
 
-DDNS service for GoDaddy. Update A records automatically, on a docker container
+DDNS service for GoDaddy, update A records with docker container public IP address
 
 ## prerequisites
 
 * `docker-compose`
-* Generate API Keys from [GoDaddy API Key Management](https://developer.godaddy.com/keys)
+* Generate production GoDaddy API Keys from [GoDaddy API Key Management](https://developer.godaddy.com/keys)
 
 ## environment variables
 
 <table>
-<tr><th>var</th><th>example</th><th>required</th></tr>
+<tr><th>var</th><th>example</th></tr>
 <tr><td>GODADDY_API_KEY</td><td>abcdefg01234_hijklmnopq01234567890</td></tr>
 <tr><td>GODADDY_API_SECRET</td><td>ABCDEFGHIJKL0123456789</td></tr>
 <tr><td>GODADDY_DOMAIN</td><td>domain.com</td></tr>
 <tr><td>GODADDY_HOST</td><td>somehost</td></tr>
-<tr><td>SCHEDULER_INTERVAL</td><td>60000 (10 minutes)</td></tr>
+<tr><td>SCHEDULER_INTERVAL</td><td>600000 (10 minutes)</td></tr>
 </table>
 
 to inject environment variables into docker-compose, you can, for example,
 create a `.env` file
- 
+
 ## build and run
+
 ```bash
 ./gradlew build docker
 docker-compose up
@@ -29,14 +30,15 @@ docker-compose up
 
 ## limitations
 
+* supports only one A record
 * does not support multiple A records
 * does not support AAAA records (IPv6)
 
 ## how does it work
 
-* get current public ip
-* get GoDaddy ip for configured host
-* update ip if needed
+* get current public IP address
+* get GoDaddy IP address for configured host
+* update IP address if needed
 
 ## Implementation
 
