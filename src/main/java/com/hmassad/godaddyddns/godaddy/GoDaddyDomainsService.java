@@ -15,7 +15,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
-@Slf4j
 public class GoDaddyDomainsService {
 
     @Qualifier("GoDaddyRestTemplate")
@@ -57,6 +56,6 @@ public class GoDaddyDomainsService {
 
         goDaddyRestTemplate.put(
                 "https://api.godaddy.com/v1/domains/" + domain + "/records/A/" + host,
-                new UpdateRecordRequest[]{new UpdateRecordRequest(3600000, ip)}); // 1 hora
+                new UpdateRecordRequest[]{new UpdateRecordRequest(3600000, ip)}); // 1 hour
     }
 }

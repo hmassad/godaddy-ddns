@@ -2,14 +2,12 @@
 
 DDNS service for GoDaddy. Update A records automatically, on a docker container
 
-## usage
-
-### prerequisites
+## prerequisites
 
 * `docker-compose`
 * Generate API Keys from [GoDaddy API Key Management](https://developer.godaddy.com/keys)
 
-### environment variables
+## environment variables
 
 <table>
 <tr><th>var</th><th>example</th><th>required</th></tr>
@@ -20,6 +18,9 @@ DDNS service for GoDaddy. Update A records automatically, on a docker container
 <tr><td>SCHEDULER_INTERVAL</td><td>60000 (10 minutes)</td></tr>
 </table>
 
+to inject environment variables into docker-compose, you can, for example,
+create a `.env` file
+ 
 ## build and run
 ```bash
 ./gradlew build docker
