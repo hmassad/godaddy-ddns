@@ -28,6 +28,13 @@ create a `.env` file
 docker-compose up
 ```
 
+gradle needs java 8, you can specify which jdk to use as
+
+```bash
+./gradlew -Dorg.gradle.java.home=/usr/lib/jvm/java-1.8.0-openjdk-amd64 build docker
+docker-compose up
+```
+
 ## limitations
 
 * supports only one A record
